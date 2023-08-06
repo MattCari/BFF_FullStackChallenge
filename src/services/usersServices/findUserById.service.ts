@@ -1,10 +1,11 @@
 import { AppDataSource } from "../../data-source";
 import { User } from "../../entities/user.entity";
+import { AppError } from "../../errors";
 import {
   tUserRepo,
   tUserResponse,
 } from "../../interfaces/user.interface";
-import { userSchemaResponse } from "../../schemas/user.schema";
+import { userContactsSchema, userSchemaResponse } from "../../schemas/user.schema";
 
 const listUserByIdService = async (
   id: number
@@ -12,8 +13,12 @@ const listUserByIdService = async (
     const userRepository: tUserRepo = AppDataSource.getRepository(User);
     const foundUser: tUserResponse | null = await userRepository.findOne({
       where: { id: id},
+      relations: {contacts: true}
     });
-  return userSchemaResponse.parse(foundUser);
+    if(!foundUser){
+      throw new AppError("User not found", 404)
+    }
+  return userContactsSchema.parse(foundUser);
 };
 
 export { listUserByIdService };
