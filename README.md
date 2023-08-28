@@ -26,21 +26,30 @@ POST http://localhost:3001/users/
 request exemaple: 
 {
 	"name": "zuzu",
+ 	<br/>
 	"email": "zuzu@kenzie.com.br",
+ 	<br/>
 	"password": "1234",
+ 	<br/>
 	"username": "zuzu96",
+ 	<br/>
 	"tel": ["15112351"]/ ["24242424", "24242525"]
 }
 
 Success Status: 201 CREATED
 expected response: {
 	"id": 9,
+ 	<br/>
 	"username": "zuzu96",
+ 	<br/>
 	"email": "zuzu@kenzie.com.br",
+ 	<br/>
 	"name": "zuzu",
+ 	<br/>
 	"tel": [
 		"15112351"
 	],
+ 	<br/>
 	"joined_in": "2023-08-02"
 }
 
