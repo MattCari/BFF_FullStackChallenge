@@ -1,6 +1,20 @@
 <h1>Documentação e rotas</h1>
 
-Create user: POST http://localhost:3001/users/
+Instalação de dependências: 
+
+npm install bcryptjs cors cross-env dotenv express express-async-errors jsonwebtoken pg reflect-metadata typeorm zod
+npm install @types/bcryptjs -D
+npm install @types/express -D
+npm install @types/jsonwebtoken -D
+npm install @types/cors -D
+npm install @types/node -D
+npm install typescript -D
+
+Migração:
+npm run typeorm migration:run -- -d ./src/data-source
+
+CREATE USER: 
+POST http://localhost:3001/users/
 
 request exemaple: 
 {
@@ -23,7 +37,8 @@ expected response: {
 	"joined_in": "2023-08-02"
 }
 
-List users: GET http://localhost:3001/users/
+LIST USERS: 
+GET http://localhost:3001/users/
 
 Success Status: 200 OK
 [
@@ -60,7 +75,8 @@ Success Status: 200 OK
 	}
 ]
 
-list User by Id: GET http://localhost:3001/users/Userid
+LIST USER BY ID:
+GET http://localhost:3001/users/Userid
 
 retorna os contatos
 
@@ -87,7 +103,8 @@ Success Status: 200 OK
 	]
 }
 
-Login: POST http://localhost:3001/login/
+LOGIN: 
+POST http://localhost:3001/login/
 
 expected body : {
     "username": "" ,
@@ -99,7 +116,9 @@ response example : {
 	"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE2OTEzNTIxOTgsImV4cCI6MTY5MTQzODU5OCwic3ViIjoiMSJ9.4JSj3SL8C7bVctHAx8B_yaMIBUpxDqyqDo3nHTtp7pE"
 }
 
-Register contact: POST http://localhost:3001/users/ContactId
+
+REGISTER CONTACT: 
+POST http://localhost:3001/users/ContactId
 
 Success Status: 201 CREATED
 expected response: 
@@ -125,7 +144,9 @@ expected response:
     ]
 }
 
-Update user: PATCH http://localhost:3001/users/userId
+
+UPDATE USER:
+PATCH http://localhost:3001/users/userId
 
 expected body: {
 	"name": "newName",
@@ -150,7 +171,9 @@ response example: {
 	"joined_in": "2023-08-02"
 }
 
-Remove contact: PATCH http://localhost:3001/users/contact/contactId
+
+REMOVE CONTACT:
+PATCH http://localhost:3001/users/contact/contactId
 
 sucessStatus: 200 OK
 response example: "contact removed"
