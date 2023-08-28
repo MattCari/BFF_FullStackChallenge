@@ -3,19 +3,19 @@
 Instalação de dependências: 
 
 npm install bcryptjs cors cross-env dotenv express express-async-errors jsonwebtoken pg reflect-metadata typeorm zod
-<br/>
+<br>
 npm install @types/bcryptjs -D
-<br/>
+<br>
 npm install @types/express -D
-<br/>
+<br>
 npm install @types/jsonwebtoken -D
-<br/>
+<br>
 npm install @types/cors -D
-<br/>
+<br>
 npm install @types/node -D
-<br/>
+<br>
 npm install typescript -D
-<br/>
+<br>
 
 Migração:
 npm run typeorm migration:run -- -d ./src/data-source
